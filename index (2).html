@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Value of Free Toilet Paper at WCU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#4F2D7F; --purple-soft:#EDE7F6; --gold:#E8A615; --gold-soft:#FCF0D2;
+  --ink:#1E1A27; --muted:#5E5770; --paper:#FFFFFF; --bg:#F6F4FA; --line:#DCD5E8;
+  --loss:#B9B2C6;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --purple:#B9A2E0; --purple-soft:#2C2340; --gold:#F2BC45; --gold-soft:#3A2E12;
+    --ink:#EEEAF5; --muted:#A8A1B8; --paper:#1D1927; --bg:#141119; --line:#3A3348; --loss:#4A4358;
+  }
+}
+:root[data-theme="dark"]{
+  --purple:#B9A2E0; --purple-soft:#2C2340; --gold:#F2BC45; --gold-soft:#3A2E12;
+  --ink:#EEEAF5; --muted:#A8A1B8; --paper:#1D1927; --bg:#141119; --line:#3A3348; --loss:#4A4358;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Libre Franklin",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Zilla Slab",Georgia,serif;line-height:1.15;margin:0}
+header{background:var(--purple);color:#fff;padding:2.2rem 1.25rem 2rem}
+:root[data-theme="dark"] header{color:#141119}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) header{color:#141119}}
+.wrap{max-width:1120px;margin:0 auto}
+header h1{font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:700;max-width:22ch}
+header p{margin:.6rem 0 0;max-width:62ch;opacity:.9}
+main{padding:1.5rem 1.25rem 3rem}
+.grid{display:grid;gap:1.5rem;grid-template-columns:minmax(0,380px) minmax(0,1fr);align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:1.4rem}
+.panel h2{font-size:1.4rem;margin-bottom:.3rem}
+.sub{color:var(--muted);font-size:.92rem;margin:0 0 1rem}
+ol.q{list-style:none;counter-reset:q;padding:0;margin:0}
+ol.q li{counter-increment:q;margin-bottom:1.15rem}
+ol.q label.ql{display:block;font-weight:600;margin-bottom:.35rem}
+ol.q label.ql::before{content:counter(q) ". ";color:var(--purple)}
+.hint{display:block;font-size:.85rem;color:var(--muted);font-weight:400;margin-top:.15rem}
+.field{display:flex;align-items:center;gap:.4rem}
+input[type=number]{width:8rem;padding:.55rem .6rem;font:inherit;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink)}
+.radios{display:flex;flex-wrap:wrap;gap:.4rem}
+.radios label{display:flex;align-items:center;gap:.35rem;border:1px solid var(--line);border-radius:999px;padding:.3rem .75rem;cursor:pointer;font-size:.92rem}
+.radios input{accent-color:var(--purple)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button{font:600 1rem "Libre Franklin",sans-serif;border:0;border-radius:6px;padding:.75rem 1.2rem;cursor:pointer;background:var(--purple);color:#fff}
+:root[data-theme="dark"] button{color:#141119}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) button{color:#141119}}
+button.ghost{background:transparent;color:var(--purple);border:1px solid var(--line)}
+button:disabled{opacity:.5;cursor:default}
+.err{color:#B3261E;font-size:.9rem;min-height:1.2em;margin:.5rem 0 0}
+.privacy{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:1.2rem;padding-top:.9rem}
+.yours{background:var(--gold-soft);border-radius:8px;padding:1rem 1.1rem;margin-top:1rem}
+.yours h3{font-size:1.15rem;margin-bottom:.4rem}
+.kv{display:grid;grid-template-columns:1fr auto;gap:.25rem 1rem;font-size:.95rem}
+.kv b{font-variant-numeric:tabular-nums;text-align:right}
+.big{font-family:"Zilla Slab",Georgia,serif;font-size:clamp(2.2rem,6vw,3.4rem);font-weight:700;color:var(--purple);line-height:1;font-variant-numeric:tabular-nums}
+.headline{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem;margin:.4rem 0 1rem}
+.headline span{color:var(--muted)}
+.chartbox{overflow-x:auto}
+svg text{font-family:"Libre Franklin",system-ui,sans-serif;fill:var(--muted);font-size:12px}
+.legend{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.85rem;color:var(--muted);margin:.4rem 0 .8rem}
+.sw{display:inline-block;width:.85rem;height:.85rem;border-radius:2px;vertical-align:-2px;margin-right:.3rem}
+.slider{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin:.6rem 0}
+.slider input{flex:1;min-width:180px;accent-color:var(--purple)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem;margin-top:1rem}
+.stat{border-left:3px solid var(--purple);padding:.2rem 0 .2rem .7rem}
+.stat b{display:block;font-size:1.25rem;font-variant-numeric:tabular-nums}
+.stat span{font-size:.85rem;color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;margin-top:.5rem}
+th,td{text-align:left;padding:.4rem .5rem;border-bottom:1px solid var(--line)}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+.empty{padding:2rem 1rem;text-align:center;color:var(--muted)}
+.note{font-size:.88rem;color:var(--muted);margin-top:1rem}
+.hidden{display:none!important}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>What is free toilet paper worth to you?</h1>
+  <p>West Chester University stocks its restrooms at no charge. Answer three quick questions to see your consumer surplus, then watch the campus demand curve take shape as others respond.</p>
+</div></header>
+
+<main><div class="wrap grid">
+  <section class="panel" aria-labelledby="survey-h">
+    <div id="formArea">
+      <h2 id="survey-h">Your answers</h2>
+      <p class="sub">Imagine the toilet paper came from a vending machine instead, sold one trip's worth at a time.</p>
+      <ol class="q">
+        <li>
+          <label class="ql" for="sheets">How many sheets do you use on a typical trip?<span class="hint">A rough count is fine.</span></label>
+          <div class="field"><input id="sheets" type="number" min="0" max="100" step="1" inputmode="numeric"> <span>sheets</span></div>
+        </li>
+        <li>
+          <label class="ql" for="wtp">At what price per trip would you stop buying it from the machine?<span class="hint">The highest price you'd still pay for one trip's worth. Enter 0 if you'd never pay.</span></label>
+          <div class="field"><span>$</span><input id="wtp" type="number" min="0" max="20" step="0.05" inputmode="decimal"></div>
+        </li>
+        <li>
+          <label class="ql" for="trips">How many restroom trips do you make on campus in a typical week?</label>
+          <div class="field"><input id="trips" type="number" min="0" max="70" step="1" inputmode="numeric"> <span>trips</span></div>
+        </li>
+        <li>
+          <span class="ql" id="g-l" style="display:block;font-weight:600;margin-bottom:.35rem"><span style="color:var(--purple)">4. </span>Gender <span class="hint" style="display:inline">(optional)</span></span>
+          <div class="radios" role="radiogroup" aria-labelledby="g-l">
+            <label><input type="radio" name="g" value="female"> Female</label>
+            <label><input type="radio" name="g" value="male"> Male</label>
+            <label><input type="radio" name="g" value="other"> Another identity</label>
+            <label><input type="radio" name="g" value="none" checked> Prefer not to say</label>
+          </div>
+        </li>
+      </ol>
+      <button id="submitBtn" type="button">Calculate my surplus</button>
+      <p class="err" id="err" role="alert"></p>
+    </div>
+
+    <div id="yours" class="yours hidden" aria-live="polite">
+      <h3>Your consumer surplus</h3>
+      <div class="kv" id="yoursKv"></div>
+      <p class="note" id="saveNote" style="margin-top:.8rem"></p>
+      <button class="ghost" id="againBtn" type="button">Start a new response</button>
+    </div>
+
+    <p class="privacy">Responses are anonymous. The page stores only your four answers and the date — no name, email, account ID, or location — and gender breakdowns appear only once a group has at least three responses.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="class-h">
+    <h2 id="class-h">Campus results</h2>
+    <p class="sub" id="classStatus">Loading campus results…</p>
+
+    <div id="classBody" class="hidden">
+      <div class="headline"><div class="big" id="totalWeek">$0</div><span id="totalWeekLbl">total consumer surplus per week</span></div>
+
+      <div class="legend">
+        <span><i class="sw" style="background:var(--purple)"></i>Consumer surplus</span>
+        <span><i class="sw" style="background:var(--gold)"></i>Machine revenue</span>
+        <span><i class="sw" style="background:var(--loss)"></i>Surplus lost to the price</span>
+        <span><i class="sw" style="background:transparent;border:2px solid var(--gold)"></i>Your response</span>
+      </div>
+      <div class="chartbox"><svg id="chart" viewBox="0 0 640 340" width="100%" role="img" aria-label="Campus demand curve for toilet paper"></svg></div>
+
+      <div class="slider">
+        <label for="price"><b>What if the machine charged</b></label>
+        <input id="price" type="range" min="0" max="5" step="0.05" value="0">
+        <b id="priceLbl" style="min-width:4.5rem">$0.00</b>
+      </div>
+      <p class="note" id="priceNote" style="margin-top:0"></p>
+
+      <div class="stats" id="stats"></div>
+      <div id="genderBox"></div>
+    </div>
+    <div id="emptyBox" class="empty hidden">No responses yet. Be the first — your answer starts the demand curve.</div>
+  </section>
+</div></main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* ==========================================================
+   SETUP: paste your two Supabase values between the quotes.
+   Find them in Supabase under Project Settings > API Keys.
+   Use the PUBLISHABLE (or "anon public") key, never the
+   secret / service_role key.
+   ========================================================== */
+const SUPABASE_URL = "PASTE_YOUR_PROJECT_URL_HERE";
+const SUPABASE_KEY = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";
+
+(function(){
+  const $ = id => document.getElementById(id);
+  const money = v => "$" + (Math.abs(v) >= 1000 ? Math.round(v).toLocaleString() : v.toFixed(2));
+  const WEEKS = 15; // weeks in a semester
+  let sb = null, rows = [], genderRows = [], mine = null;
+
+  // ---------- Survey ----------
+  function readForm(){
+    const sheets = parseFloat($("sheets").value), wtp = parseFloat($("wtp").value), trips = parseFloat($("trips").value);
+    const g = (document.querySelector('input[name="g"]:checked')||{}).value || "none";
+    if (!(sheets >= 0 && sheets <= 100)) return {error:"Enter a number of sheets between 0 and 100."};
+    if (!(wtp >= 0 && wtp <= 20)) return {error:"Enter a price between $0 and $20."};
+    if (!(trips >= 0 && trips <= 70) || !Number.isInteger(trips)) return {error:"Enter a whole number of trips between 0 and 70."};
+    return {sheets:Math.round(sheets), wtp:Math.round(wtp*100)/100, trips, gender:g};
+  }
+
+  function showYours(r){
+    const perSheet = r.sheets > 0 ? r.wtp / r.sheets : 0;
+    $("yoursKv").innerHTML =
+      `<span>Per trip (your price − $0)</span><b>${money(r.wtp)}</b>
+       <span>Per week (${r.trips} trips)</span><b>${money(r.wtp*r.trips)}</b>
+       <span>Per ${WEEKS}-week semester</span><b>${money(r.wtp*r.trips*WEEKS)}</b>
+       <span>Implied value per sheet</span><b>${r.sheets>0 ? "$"+perSheet.toFixed(3) : "—"}</b>`;
+    $("formArea").classList.add("hidden");
+    $("yours").classList.remove("hidden");
+  }
+
+  $("submitBtn").addEventListener("click", async () => {
+    const r = readForm();
+    $("err").textContent = r.error || "";
+    if (r.error) return;
+    mine = r;
+    showYours(r);
+    if (!sb) { $("saveNote").textContent = "Campus results aren't connected yet, so your answer was not added to the total."; return; }
+    $("saveNote").textContent = "Adding your answer to the campus total…";
+    $("submitBtn").disabled = true;
+    const { error } = await sb.from("responses").insert({sheets:r.sheets, wtp:r.wtp, trips:r.trips, gender:r.gender});
+    $("submitBtn").disabled = false;
+    if (error) { $("saveNote").textContent = "Your answer couldn't be saved just now. Reload the page and try again."; console.error(error); return; }
+    $("saveNote").textContent = "Added to the campus total. Your step on the demand curve is outlined in gold.";
+    await loadData();
+  });
+
+  $("againBtn").addEventListener("click", () => {
+    mine = null;
+    ["sheets","wtp","trips"].forEach(id => $(id).value = "");
+    document.querySelector('input[name="g"][value="none"]').checked = true;
+    $("yours").classList.add("hidden"); $("formArea").classList.remove("hidden");
+    render(); $("sheets").focus();
+  });
+
+  $("price").addEventListener("input", render);
+
+  // ---------- Campus results ----------
+  function render(){
+    if (!sb) return;
+    if (!rows.length){ $("classBody").classList.add("hidden"); $("emptyBox").classList.remove("hidden"); return; }
+    $("emptyBox").classList.add("hidden"); $("classBody").classList.remove("hidden");
+
+    const n = rows.length;
+    const totalWeek = rows.reduce((s,r)=>s+r.wtp*r.trips,0);
+    const totalTrips = rows.reduce((s,r)=>s+r.trips,0);
+    const avgTrip = rows.reduce((s,r)=>s+r.wtp,0)/n;
+    const totSheets = rows.reduce((s,r)=>s+r.sheets,0);
+    const avgSheets = totSheets/n;
+    const perSheet = totSheets>0 ? rows.reduce((s,r)=>s+r.wtp,0)/totSheets : 0;
+
+    $("totalWeek").textContent = money(totalWeek);
+    $("totalWeekLbl").textContent = `total consumer surplus per week, from ${n} respondent${n===1?"":"s"}`;
+
+    const maxW = Math.max(1, ...rows.map(r=>r.wtp));
+    const sl = $("price"); sl.max = (Math.ceil(maxW*4)/4).toFixed(2);
+    const p = Math.min(parseFloat(sl.value)||0, parseFloat(sl.max));
+    $("priceLbl").textContent = money(p);
+
+    const buyers = rows.filter(r=>r.wtp>=p && r.wtp>0);
+    const qty = buyers.reduce((s,r)=>s+r.trips,0);
+    const csAtP = buyers.reduce((s,r)=>s+(r.wtp-p)*r.trips,0);
+    const rev = p*qty;
+    const lost = totalWeek - csAtP - rev;
+    $("priceNote").textContent = p === 0
+      ? "At today's price of $0, every trip is covered and all of the area under the demand curve is consumer surplus. Drag the slider to see what a price would do."
+      : `At ${money(p)} per trip, weekly purchases fall from ${totalTrips} to ${qty} trips. Remaining consumer surplus is ${money(csAtP)}, the machine collects ${money(rev)}, and ${money(lost)} of surplus disappears because some trips go unbought.`;
+
+    $("stats").innerHTML = [
+      [money(avgTrip),"average surplus per trip"],
+      [money(totalWeek/n),"average surplus per person per week"],
+      [money(totalWeek*WEEKS),`total surplus per ${WEEKS}-week semester`],
+      [avgSheets.toFixed(1),"average sheets per trip"],
+      ["$"+perSheet.toFixed(3),"implied value per sheet"],
+      [String(totalTrips),"restroom trips per week"]
+    ].map(([v,l])=>`<div class="stat"><b>${v}</b><span>${l}</span></div>`).join("");
+
+    // Gender summary comes from the database already filtered to groups of 3+
+    const names = {female:"Female",male:"Male",other:"Another identity",none:"Prefer not to say"};
+    const groups = genderRows.filter(g=>names[g.gender] && g.n>=3);
+    $("genderBox").innerHTML = groups.length ? `<h3 style="font-size:1.15rem;margin-top:1.4rem">By gender</h3>
+      <table><thead><tr><th>Group</th><th style="text-align:right">Responses</th><th style="text-align:right">Surplus per trip</th><th style="text-align:right">Per person per week</th><th style="text-align:right">Sheets per trip</th></tr></thead>
+      <tbody>${groups.map(g=>`<tr><td>${names[g.gender]}</td><td class="n">${g.n}</td><td class="n">${money(g.avg_wtp)}</td><td class="n">${money(g.avg_week)}</td><td class="n">${g.avg_sheets.toFixed(1)}</td></tr>`).join("")}</tbody></table>` : "";
+
+    drawChart(p, maxW);
+  }
+
+  function drawChart(p, maxW){
+    const svg = $("chart"), W=640, H=340, L=58, R=16, T=16, B=46;
+    const sorted = rows.filter(r=>r.trips>0).slice().sort((a,b)=>b.wtp-a.wtp);
+    const Q = Math.max(1, sorted.reduce((s,r)=>s+r.trips,0));
+    const yMax = Math.ceil(maxW*1.1*4)/4 || 1;
+    const x = q => L + (q/Q)*(W-L-R), y = v => T + (1 - v/yMax)*(H-T-B);
+    let out = "";
+    for (let i=0;i<=5;i++){ const v=yMax*i/5;
+      out += `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/>`;
+      out += `<text x="${L-8}" y="${y(v)+4}" text-anchor="end">$${v.toFixed(2)}</text>`; }
+    let q=0, path=`M ${x(0)} ${y(sorted.length?sorted[0].wtp:0)}`;
+    sorted.forEach(r=>{
+      const x0=x(q), x1=x(q+r.trips), top=y(r.wtp), w=x1-x0;
+      if (r.wtp >= p && r.wtp > 0){
+        out += `<rect x="${x0}" y="${top}" width="${w}" height="${y(p)-top}" fill="var(--purple)" opacity=".85"/>`;
+        out += `<rect x="${x0}" y="${y(p)}" width="${w}" height="${y(0)-y(p)}" fill="var(--gold)" opacity=".9"/>`;
+      } else {
+        out += `<rect x="${x0}" y="${top}" width="${w}" height="${y(0)-top}" fill="var(--loss)" opacity=".8"/>`;
+      }
+      path += ` L ${x0} ${top} L ${x1} ${top}`;
+      q += r.trips;
+    });
+    out += `<path d="${path}" fill="none" stroke="var(--ink)" stroke-width="1.5"/>`;
+    if (mine && mine.trips>0){
+      let q2=0, done=false;
+      for (const r of sorted){ if(!done && r.wtp===mine.wtp && r.trips===mine.trips && r.sheets===mine.sheets){
+          out += `<rect x="${x(q2)}" y="${y(r.wtp)}" width="${Math.max(2,x(q2+r.trips)-x(q2))}" height="${y(0)-y(r.wtp)}" fill="none" stroke="var(--gold)" stroke-width="3"/>`; done=true; }
+        q2+=r.trips; }
+    }
+    if (p>0) out += `<line x1="${L}" x2="${W-R}" y1="${y(p)}" y2="${y(p)}" stroke="var(--ink)" stroke-dasharray="5 4" stroke-width="1.5"/><text x="${W-R}" y="${y(p)-6}" text-anchor="end" style="fill:var(--ink)">price ${money(p)}</text>`;
+    out += `<line x1="${L}" x2="${L}" y1="${T}" y2="${y(0)}" stroke="var(--ink)"/><line x1="${L}" x2="${W-R}" y1="${y(0)}" y2="${y(0)}" stroke="var(--ink)"/>`;
+    for (let i=0;i<=4;i++){ const qq=Math.round(Q*i/4); out += `<text x="${x(qq)}" y="${y(0)+18}" text-anchor="middle">${qq}</text>`; }
+    out += `<text x="${(L+W-R)/2}" y="${H-6}" text-anchor="middle">Restroom trips per week (all respondents, highest value first)</text>`;
+    out += `<text transform="translate(14 ${(T+H-B)/2}) rotate(-90)" text-anchor="middle">Price per trip</text>`;
+    svg.innerHTML = out;
+  }
+
+  // ---------- Load data from Supabase ----------
+  async function loadData(){
+    const [a, b] = await Promise.all([sb.rpc("get_responses"), sb.rpc("get_gender_summary")]);
+    if (a.error){ $("classStatus").textContent = "Campus results couldn't load. Reload the page to try again."; console.error(a.error); return; }
+    rows = (a.data||[]).map(r=>({sheets:Number(r.sheets), wtp:Number(r.wtp), trips:Number(r.trips)}));
+    genderRows = b.error ? [] : (b.data||[]).map(g=>({gender:g.gender, n:Number(g.n), avg_wtp:Number(g.avg_wtp), avg_week:Number(g.avg_week), avg_sheets:Number(g.avg_sheets)}));
+    $("classStatus").textContent = "Refreshes every 30 seconds and whenever you add a response.";
+    render();
+  }
+
+  function connect(){
+    if (!window.supabase || SUPABASE_URL.startsWith("PASTE") || SUPABASE_KEY.startsWith("PASTE")){
+      $("classStatus").textContent = "Campus results aren't connected yet. You can still calculate your own surplus.";
+      return;
+    }
+    sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {auth:{persistSession:false}});
+    loadData();
+    setInterval(() => { if (!document.hidden) loadData(); }, 30000);
+  }
+  connect();
+})();
+</script>
+
+</body>
+</html>
